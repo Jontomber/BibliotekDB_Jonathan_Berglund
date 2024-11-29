@@ -1,0 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using SystemBiblotek.Models;
+
+public class AppDbContext : DbContext
+{
+    public DbSet<Aurthor> Aurthor {get; set;}
+    public DbSet<Books> Books {get; set;}
+    public DbSet<Borower> Borrower {get; set;}
+    public DbSet<Loan> Loan {get; set;}
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SystemBiblotek;Trusted_Connection=True;");
+    }
+
+    // protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // {
+    //     modelBuilder.Entity<Customer>()
+    //         .HasOne(P=> P.Address)
+    //         .WithMany(A => A.Customer)
+    //         .HasForeignKey(P => P.AddressId);
+    // }
+}
+
