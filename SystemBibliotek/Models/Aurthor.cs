@@ -9,5 +9,8 @@ namespace SystemBibliotek.Models
         public int AurthorId {get; set;}
         public string FirstName {get; set;}
         public string LastName {get; set;}
+
+        [Foreignkey (BookID)]
+        public int BookID {get; set;}
     }
 }

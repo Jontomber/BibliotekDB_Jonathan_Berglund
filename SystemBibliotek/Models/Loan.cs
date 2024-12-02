@@ -10,7 +10,7 @@ namespace SystemBibliotek.Models
         public string BorrowerDate {get; set;}
         public string ReturnDate {get; set;}
 
-        [Foreignkey (BorrwerID, BookID)]
+        [Foreignkey (BorrwerID)(BookID)]
         public int BorrowerID {get; set;}
         public int BookID {get; set;}
     }
