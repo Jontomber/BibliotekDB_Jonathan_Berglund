@@ -6,11 +6,10 @@ namespace SystemBibliotek.Models
 {
     public class Aurthor
     {
-        public int AurthorId {get; set;}
+        public int AurthorID {get; set;}
         public string FirstName {get; set;}
         public string LastName {get; set;}
 
-        [Foreignkey (BookID)]
-        public int BookID {get; set;}
+        public ICollection<BookAurthor> BookAurthors {get; set;}
     }
 }

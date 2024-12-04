@@ -1,4 +1,4 @@
-﻿class menu
+﻿class Menu
 {
     static void Main(string[] args)
     {
