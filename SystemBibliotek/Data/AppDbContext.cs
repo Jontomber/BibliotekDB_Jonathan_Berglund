@@ -15,7 +15,7 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<BookAurthor>()
-            .HasKey(ba => new { ba.BookID, ba.AurthorId }); 
+            .HasKey(ba => new { ba.BookID, ba.AurthorID }); 
 
         modelBuilder.Entity<BookAurthor>()
             .HasOne(ba => ba.Book)
@@ -23,14 +23,14 @@ public class AppDbContext : DbContext
             .HasForeignKey(ba => ba.BookID);
         
         modelBuilder.Entity<BookAurthor>()
-            .HasOne(ba => ba.Author)
+            .HasOne(ba => ba.Aurthor)
             .WithMany(ba => ba.BookAurthors)
-            .HasForeignKey(ba => ba.AurthorId);
+            .HasForeignKey(ba => ba.AurthorID);
         
         modelBuilder.Entity<Loan>()
             .HasOne(l => l.Book)
             .WithMany(l => l.Loans)
-            .HasForeignKey(l => l.BookId);
+            .HasForeignKey(l => l.BookID);
     }
 }
 
