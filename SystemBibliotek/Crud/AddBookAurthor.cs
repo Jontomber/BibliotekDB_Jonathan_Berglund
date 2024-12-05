@@ -33,7 +33,7 @@ public class AddBook
             };
             context.Books.Add(_book);
             context.SaveChanges();
-            System.Console.WriteLine($"{_title} Has been added"); //Behöver Fixa
+            System.Console.WriteLine($"{_title} Has been added"); 
         }
     }
 }
@@ -57,6 +57,7 @@ public class AddAurthor
                 FirstName = _firstName,
                 LastName = _lastName,
             };
+
             context.Aurthors.Add(_aurthor);
             context.SaveChanges();
             System.Console.WriteLine($"{_firstName} {_lastName} Has been added");

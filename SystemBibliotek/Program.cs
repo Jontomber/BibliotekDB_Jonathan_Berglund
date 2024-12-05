@@ -3,12 +3,16 @@ using System.Dynamic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using SystemBibliotek.Models;
 
-class Program
+class MainProgram
 {
+    
+
     static void Main(string[] args)
     {   
+        Seed.Run();
         Console.WriteLine("Hey test");
         int menuSel = 0;
         do
@@ -22,15 +26,14 @@ class Program
     {
         int menuSel = 0;
         Console.WriteLine("Menu Test");
-        System.Console.WriteLine("1. Create Book");
-        System.Console.WriteLine("2. Create Aurthor");
-        System.Console.WriteLine("3. Delete Book, Aurthor");
-        System.Console.WriteLine("4. Loan Book");
-        System.Console.WriteLine("5. Return Book");
-        System.Console.WriteLine("6. Update Book, Aurthor");
-        System.Console.WriteLine("7. Add Reltionship to Aurthor and Book.");
-        System.Console.WriteLine("8. List");
-        System.Console.WriteLine("9. Quit");
+        Console.WriteLine("1. Create Book");
+        Console.WriteLine("2. Create Aurthor");
+        Console.WriteLine("3. Delete Book, Aurthor, Loan");
+        Console.WriteLine("4. Loan and return Book");
+        Console.WriteLine("5. Update Book, Aurthor");
+        Console.WriteLine("6. Add Reltionship to Aurthor and Book.");
+        Console.WriteLine("7. List");
+        Console.WriteLine("8. Quit");
         try
         {
             menuSel = Convert.ToInt32(Console.ReadLine());
@@ -59,28 +62,25 @@ class Program
             case 2:
                 AddAurthor.Run();
                 break;
-            // case 3:
-            //     Remove.Run();
-            //     break;
-            // case 4:
-            //     LoanBook.Run();
-            //     break;
-            // case 5:
-            //     ReturnBook.Run();
-            //     break;
-            // case 6:
-            //     Update.Run();
-            //     break;
-            // case 7:
-            //     SetRelationship.Run();
-            //     break;
-            // case 8:
-            //     List.Run();
-            //     break;
-            // case 9:
-            //     System.Console.WriteLine("Bye Test");
-            //     menuSel = 0;   
-            //     return;
+            case 3:
+                Remove.Run();
+                break;
+            case 4:
+                ReturnAndLoan.Run();
+                break;
+            case 5:
+                Update.Run();
+                break;
+            case 6:
+                Relationship.run();
+                break;
+            case 7:
+                List.Run();
+                break;
+            case 8:
+                System.Console.WriteLine("Bye Test");
+                menuSel = 0;   
+                return;
             default:
                 System.Console.WriteLine("Invalid input test");
                 Console.ReadLine();

@@ -28,9 +28,13 @@ public class AppDbContext : DbContext
             .HasForeignKey(ba => ba.AurthorID);
         
         modelBuilder.Entity<Loan>()
-            .HasOne(l => l.Book)
-            .WithMany(l => l.Loans)
-            .HasForeignKey(l => l.BookID);
+            .HasKey(l => l.LoanID);
+
+        // modelBuilder.Entity<Loan>()
+        //     .HasOne(l => l.Book)
+        //     .WithMany(l => l.Loans)
+        //     .HasForeignKey(l => l.BookID);
+
     }
 }
 

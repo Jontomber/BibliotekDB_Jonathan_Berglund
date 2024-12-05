@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace SystemBibliotek.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241204013807_InitialCreate")]
+    [Migration("20241205213550_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -53,9 +53,11 @@ namespace SystemBibliotek.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BookID"));
 
-                    b.Property<string>("PublicationDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateOnly>("PublishDate")
+                        .HasColumnType("date");
+
+                    b.Property<bool>("ReadyLoan")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -95,17 +97,14 @@ namespace SystemBibliotek.Migrations
                     b.Property<int>("BookID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("BorrowedDate")
+                    b.Property<DateTime>("LoanDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("BorrowerID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("ReturnDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Returned")
-                        .HasColumnType("int");
+                    b.Property<bool>("Returned")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Signature")
                         .IsRequired()

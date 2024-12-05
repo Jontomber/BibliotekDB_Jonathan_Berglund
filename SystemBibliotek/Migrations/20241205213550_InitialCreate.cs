@@ -32,7 +32,8 @@ namespace SystemBibliotek.Migrations
                     BookID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PublicationDate = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PublishDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    ReadyLoan = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,10 +72,9 @@ namespace SystemBibliotek.Migrations
                     LoanID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BookID = table.Column<int>(type: "int", nullable: false),
-                    BorrowerID = table.Column<int>(type: "int", nullable: false),
-                    BorrowedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    LoanDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Returned = table.Column<int>(type: "int", nullable: false),
+                    Returned = table.Column<bool>(type: "bit", nullable: false),
                     Signature = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
