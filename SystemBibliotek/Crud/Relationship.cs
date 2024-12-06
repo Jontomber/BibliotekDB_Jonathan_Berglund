@@ -15,12 +15,12 @@ public class Relationship
             {
             foreach (var book in books)
             {
-                System.Console.WriteLine($"Book ID {book.BookID} Title {book.Title}");
+                System.Console.WriteLine($"Book ID {book.BookID} Title {book.Title} ");
             }
             }
             else 
             {
-                System.Console.WriteLine("There is no book");
+                System.Console.WriteLine("There is no book ");
             } 
 
         var Aurthors = context.Aurthors.ToList();
@@ -29,12 +29,12 @@ public class Relationship
             {
             foreach (var aurthor in Aurthors)
             {
-                System.Console.WriteLine($"Aurthor ID {aurthor.AurthorID} Name {aurthor.FirstName} {aurthor.LastName}");
+                System.Console.WriteLine($"Aurthor ID {aurthor.AurthorID} Name {aurthor.FirstName} {aurthor.LastName} ");
             }
             }
             else 
             {
-                System.Console.WriteLine("There is no aurthor");
+                System.Console.WriteLine("There is no aurthor ");
             } 
 
 
@@ -42,14 +42,14 @@ public class Relationship
 
             if (!int.TryParse(Console.ReadLine(), out var bookID))
             {
-                System.Console.WriteLine("Invalid BookID");
+                System.Console.WriteLine("Invalid BookID ");
             }
 
             System.Console.Write("Enter Aurthor ID ");
 
             if (!int.TryParse(Console.ReadLine(), out var aurthorID))
             {
-                System.Console.WriteLine("Invalid Aurthor ID");
+                System.Console.WriteLine("Invalid Aurthor ID ");
             }
 
             var bookAurthor = new BookAurthor
@@ -59,7 +59,7 @@ public class Relationship
 
             context.BookAurthors.Add(bookAurthor);
             context.SaveChanges();
-            System.Console.WriteLine("Saved succesfully");
+            System.Console.WriteLine("Has been saved ");
             
         }
     }

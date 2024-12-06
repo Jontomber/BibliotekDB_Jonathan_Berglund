@@ -22,10 +22,10 @@ public class List
                 
                 else if (_input == "Yes")
                 {
-                    System.Console.WriteLine("\n1. View List book.");
-                    System.Console.WriteLine("2. View list Loan");
-                    System.Console.WriteLine("3. View relationship");
-                    System.Console.WriteLine("4. Go to menu.");
+                    System.Console.WriteLine("\n1. View List Book");
+                    System.Console.WriteLine("2. View List Loan");
+                    System.Console.WriteLine("3. View Relationship");
+                    System.Console.WriteLine("4. Go To Menu");
                 
 
                     var _menuInput = Console.ReadLine();
@@ -41,18 +41,18 @@ public class List
                             ViewBook.Run();
                             break;
                         case "4":
-                            System.Console.WriteLine("To go back press any key");
+                            System.Console.WriteLine("To go back press any key ");
                             Console.ReadLine();
                             return;
                         default:
-                            System.Console.WriteLine("Select between 1 - 4");  
+                            System.Console.WriteLine("Select between 1 - 4 ");  
                             Console.ReadLine();                      
                             break; 
                     }
                 }
                 else
                 {
-                    System.Console.WriteLine("Invalid input, put 1 - 4");
+                    System.Console.WriteLine("Invalid input put 1 - 4 ");
                     Console.ReadLine();       
                 }
             }
@@ -71,10 +71,10 @@ public class ListBook
             
             foreach (var Book in Books)
             {
-                System.Console.WriteLine($"\nBook ID {Book.BookID} Book Title {Book.Title} {Book.PublishDate}");
+                System.Console.WriteLine($"\nBook ID {Book.BookID} Book Title {Book.Title} {Book.PublishDate} ");
                 foreach (var aurthor in Book.BookAurthors)
                 {
-                    System.Console.WriteLine($"Author ID {aurthor.AurthorID} Author {aurthor.Aurthor.FirstName} {aurthor.Aurthor.LastName}");
+                    System.Console.WriteLine($"Author ID {aurthor.AurthorID} Author {aurthor.Aurthor.FirstName} {aurthor.Aurthor.LastName} ");
                 }
             }
         }
@@ -93,7 +93,7 @@ public class ListBook
 
                 if (!loans.Any())
                 {
-                    System.Console.WriteLine("There are no loan books");
+                    System.Console.WriteLine("There are no loan books ");
                 }
                 else
                 {
@@ -101,7 +101,7 @@ public class ListBook
                     {
                         System.Console.WriteLine($"\nBook: {loan.Book.Title}");
                         System.Console.WriteLine($"Signature: {loan.Signature}");
-                        System.Console.WriteLine($"Is returned: {loan.Returned}");
+                        System.Console.WriteLine($"Is Returned: {loan.Returned}");
                     }
 
                 }

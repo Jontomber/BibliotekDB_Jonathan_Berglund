@@ -28,7 +28,7 @@ public class Remove
                     RemoveLoan();
                     break;
                 case "4":
-                    System.Console.WriteLine("To go back press any key");
+                    System.Console.WriteLine("To go back press any key ");
                     Console.ReadLine();
                     return;
             }
@@ -42,7 +42,7 @@ public class Remove
             var loans = context.Loans.ToList();
             if (!loans.Any())
             {
-                System.Console.WriteLine("No loan found");
+                System.Console.WriteLine("No loan found ");
             }
             else
             {
@@ -52,7 +52,7 @@ public class Remove
                 }
             }
 
-            Console.Write("Write Loan ID to delete");
+            Console.Write("Write Loan ID to delete ");
             if (int.TryParse(Console.ReadLine(), out var loanId))
             {
                 var loan = context.Loans.Find(loanId);
@@ -60,11 +60,11 @@ public class Remove
                 {
                     context.Loans.Remove(loan);
                     context.SaveChanges();
-                    Console.WriteLine("Loan has been removed");
+                    Console.WriteLine("Loan has been removed ");
                 }
                 else
                 {
-                    Console.WriteLine("Loan ID not found.");
+                    Console.WriteLine("Loan ID not found ");
                 }
             }
         }
@@ -77,17 +77,17 @@ public class Remove
             var books = context.Books.ToList();
             if (!books.Any())
             {
-                System.Console.WriteLine("No book found");
+                System.Console.WriteLine("No book found ");
             }
             else
             {
                 foreach (var bock in books) 
                 {
-                    System.Console.WriteLine($"Book ID {bock.BookID} Title {bock.Title}");
+                    System.Console.WriteLine($"Book ID {bock.BookID} Title {bock.Title} ");
                 }
             }
 
-            System.Console.Write("Write book id to delete");
+            System.Console.Write("Write Book ID you want to delete ");
             if (int.TryParse(Console.ReadLine(), out var bookid))
             {
                 var book = context.Books.Find(bookid);
@@ -98,11 +98,11 @@ public class Remove
 
                     context.Books.Remove(book);
                     context.SaveChanges();
-                    System.Console.WriteLine("Book has been removed");
+                    System.Console.WriteLine("Book has been removed ");
                 }
                 else
                 {
-                    Console.WriteLine("Book not found.");
+                    Console.WriteLine("Book not found ");
                 }
             }
         }
@@ -116,17 +116,17 @@ public class Remove
 
             if (!aurthors.Any())
             {
-                System.Console.WriteLine("No authors found");
+                System.Console.WriteLine("No authors found ");
             }
             else
             {
                 foreach (var auth in aurthors)
                 {
-                    System.Console.WriteLine($"Aurthor ID {auth.AurthorID} Firstname {auth.FirstName} Lastname: {auth.LastName}");
+                    System.Console.WriteLine($"Aurthor ID {auth.AurthorID} Firstname {auth.FirstName} Lastname {auth.LastName} ");
                 }
             }
 
-            System.Console.Write("Enter aurthor ID to delete: ");
+            System.Console.Write("Enter Aurthor ID to delete ");
             if (int.TryParse(Console.ReadLine(), out var aurthorID))
             {
                 var aurthor = context.Aurthors.Find(aurthorID);
@@ -137,12 +137,12 @@ public class Remove
 
                     context.Aurthors.Remove(aurthor);
                     context.SaveChanges();
-                    Console.WriteLine("Aurthor has been deleted");
+                    Console.WriteLine("Aurthor has been deleted ");
                 }
             }
             else
             {
-                Console.WriteLine("Aurthor not found.");
+                Console.WriteLine("Aurthor not found ");
             }
         }
     }

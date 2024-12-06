@@ -8,6 +8,7 @@ namespace SystemBibliotek.Models
     {
         public int BookID {get; set;}
         public string Title {get; set;}
+        
         public DateOnly PublishDate {get; set;}
         public bool ReadyLoan {get; set;}
 

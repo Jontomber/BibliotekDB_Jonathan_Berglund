@@ -2,10 +2,35 @@ using System;
 using Microsoft.EntityFrameworkCore.Storage.Json;
 using SystemBibliotek.Models;
 
-public class AddBook
+public class Create
 {
-    
     public static void Run()
+    {
+        using (var context = new AppDbContext())
+        {
+            System.Console.WriteLine("\nCreate Book or Aurthor");
+            System.Console.WriteLine("1. Create Book");
+            System.Console.WriteLine("2. Create Aurthor");
+            System.Console.WriteLine("3. Go back");
+
+            var input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    AddBook();
+                    break;
+                case "2":
+                    AddAurthor();
+                    break;
+                case "4":
+                    System.Console.WriteLine("To go back press any key");
+                    Console.ReadLine();
+                    return;
+            }
+        }
+    }
+    public static void AddBook()
     {
         using (var context = new AppDbContext())
         {
@@ -14,7 +39,7 @@ public class AddBook
             System.Console.WriteLine("Enter Title");
             var _title = Console.ReadLine()?.Trim();
 
-            System.Console.WriteLine("Enter Release Date Test YYYY-MM-DD");
+            System.Console.WriteLine("Enter Release Date Test YYYY MM DD need blank spaces between numbers");
             var _publishDate = Console.ReadLine();
             if (!DateOnly.TryParse(_publishDate, out DateOnly publishDate))
             {
@@ -36,11 +61,9 @@ public class AddBook
             System.Console.WriteLine($"{_title} Has been added"); 
         }
     }
-}
 
-public class AddAurthor
-{
-    public static void Run()
+
+    public static void AddAurthor()
     {
         using (var context = new AppDbContext())
         {
@@ -60,7 +83,7 @@ public class AddAurthor
 
             context.Aurthors.Add(_aurthor);
             context.SaveChanges();
-            System.Console.WriteLine($"{_firstName} {_lastName} Has been added");
+            System.Console.WriteLine($"{_firstName} {_lastName} Has been added\n");
         }
     }
 }

@@ -27,7 +27,7 @@ public class ReturnAndLoan
                     ReturnBook();
                     break;
                 case "4":
-                    System.Console.WriteLine("To go back press any key");
+                    System.Console.WriteLine("To go back press any key ");
                     Console.ReadLine();
                     return;
             }
@@ -41,14 +41,14 @@ public class ReturnAndLoan
         using (var context = new AppDbContext())
         {
 
-            System.Console.WriteLine("\n Books Available\n");
-            var books = context.Books.Include(ba => ba.BookAurthors) // bo
+            System.Console.WriteLine("\nBooks Available\n");
+            var books = context.Books.Include(ba => ba.BookAurthors) 
                 .ThenInclude(ba => ba.Aurthor)
                 .ToList();
 
             if (!books.Any())
             {
-                Console.WriteLine("There is no books to loan");
+                Console.WriteLine("There is no books to loan ");
                 return;
             }
 
@@ -64,20 +64,20 @@ public class ReturnAndLoan
             Console.Write("Enter Book ID ");
             if (!int.TryParse(Console.ReadLine(), out var bookID))
             {
-                Console.WriteLine("Invalid Book ID");
+                Console.WriteLine("Invalid Book ID ");
                 return;
             }
 
             var book = context.Books.Find(bookID);
             if (book == null)
             {
-                Console.WriteLine("Book not found.");
+                Console.WriteLine("Book not found ");
                 return;
             }
 
             if (!book.ReadyLoan)
             {
-                System.Console.WriteLine("Book not available");
+                System.Console.WriteLine("Book not available ");
                 return;
             }
             var loan = new Loan
@@ -91,7 +91,7 @@ public class ReturnAndLoan
             context.Loans.Add(loan);
             context.SaveChanges();
 
-            Console.WriteLine($"Loan added {bookID} Lender {lender}");
+            Console.WriteLine($"Loan added {bookID} Lender {lender} ");
         }
     }
 
@@ -106,7 +106,7 @@ public class ReturnAndLoan
             Console.Write("Write BookID to return ");
             if (!int.TryParse(Console.ReadLine(), out var bookID))
             {
-                Console.WriteLine("There is no Book ID for this");
+                Console.WriteLine("There is no Book ID for this ");
                 return;
             }
 
@@ -115,7 +115,7 @@ public class ReturnAndLoan
 
             if (loan == null)
             {
-                Console.WriteLine("There is no loan for this lender");
+                Console.WriteLine("There is no loan for this lender ");
                 return;
             }
 
@@ -130,7 +130,7 @@ public class ReturnAndLoan
             }
 
             context.SaveChanges();
-            Console.WriteLine($"Lender {lender} has returned Book ID {bookID}");
+            Console.WriteLine($"Lender {lender} has returned Book ID {bookID} ");
         }
     }
 }

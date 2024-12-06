@@ -8,45 +8,42 @@ using SystemBibliotek.Models;
 
 class MainProgram
 {
-    
-
     static void Main(string[] args)
     {   
         Seed.Run();
-        Console.WriteLine("Hey test");
+        Console.WriteLine("Welcome\n");
         int menuSel = 0;
         do
         {
             menuSel = MenuS();
             Menu(menuSel);
         }
-        while (menuSel != 9);
+        while (menuSel != 7);
     }
     private static int MenuS()
     {
         int menuSel = 0;
-        Console.WriteLine("Menu Test");
-        Console.WriteLine("1. Create Book");
-        Console.WriteLine("2. Create Aurthor");
-        Console.WriteLine("3. Delete Book, Aurthor, Loan");
-        Console.WriteLine("4. Loan and return Book");
-        Console.WriteLine("5. Update Book, Aurthor");
-        Console.WriteLine("6. Add Reltionship to Aurthor and Book.");
-        Console.WriteLine("7. List");
-        Console.WriteLine("8. Quit");
+        Console.WriteLine("Menu Selection");
+        Console.WriteLine("1. Create Book, Aurthor");
+        Console.WriteLine("2. Delete Book, Aurthor, Loan");
+        Console.WriteLine("3. Loan and return Book");
+        Console.WriteLine("4. Update Book, Aurthor");
+        Console.WriteLine("5. Add Reltionship to Aurthor and Book.");
+        Console.WriteLine("6. List");
+        Console.WriteLine("7. Quit");
         try
         {
             menuSel = Convert.ToInt32(Console.ReadLine());
-            if (menuSel < 1 || menuSel > 9)
+            if (menuSel < 1 || menuSel > 7)
             {
-                Console.WriteLine("Select Between 1 - 9 Test");
+                Console.WriteLine("Select Between 1 - 7");
                 Console.ReadLine();
                 return MenuS();
             }
         }
         catch
         {
-            System.Console.WriteLine("Select between 1 - 9 Test");
+            System.Console.WriteLine("Select between 1 - 7");
             Console.ReadLine();
             return MenuS(); 
         }
@@ -57,32 +54,29 @@ class MainProgram
         switch (menuSel)
         {
             case 1:
-                AddBook.Run();
+                Create.Run();
                 break;
             case 2:
-                AddAurthor.Run();
-                break;
-            case 3:
                 Remove.Run();
                 break;
-            case 4:
+            case 3:
                 ReturnAndLoan.Run();
                 break;
-            case 5:
+            case 4:
                 Update.Run();
                 break;
-            case 6:
+            case 5:
                 Relationship.run();
                 break;
-            case 7:
+            case 6:
                 List.Run();
                 break;
-            case 8:
-                System.Console.WriteLine("Bye Test");
+            case 7:
+                System.Console.WriteLine("Bye!");
                 menuSel = 0;   
                 return;
             default:
-                System.Console.WriteLine("Invalid input test");
+                System.Console.WriteLine("Invalid input!");
                 Console.ReadLine();
                 break;
         }

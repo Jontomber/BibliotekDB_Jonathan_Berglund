@@ -11,7 +11,6 @@ public class AppDbContext : DbContext
     {
         optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=SystemBiblotek;Trusted_Connection=True;");
     }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<BookAurthor>()
@@ -29,12 +28,6 @@ public class AppDbContext : DbContext
         
         modelBuilder.Entity<Loan>()
             .HasKey(l => l.LoanID);
-
-        // modelBuilder.Entity<Loan>()
-        //     .HasOne(l => l.Book)
-        //     .WithMany(l => l.Loans)
-        //     .HasForeignKey(l => l.BookID);
-
     }
 }
 

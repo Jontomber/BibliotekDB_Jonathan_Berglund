@@ -18,7 +18,7 @@ public class ViewBook
 
                 foreach (var book in books)
                 {
-                    System.Console.WriteLine($"Book Title {book.Title}");
+                    System.Console.WriteLine($"Book Title {book.Title} ");
                     foreach (var aurthor in book.BookAurthors)
                     {
                         System.Console.WriteLine($"Aurthor ID {aurthor.AurthorID} Aurthor Name {aurthor.Aurthor.FirstName} {aurthor.Aurthor.LastName}");
@@ -27,7 +27,7 @@ public class ViewBook
             }
             else
             {
-                System.Console.WriteLine("There is no reltionship");
+                System.Console.WriteLine("There is no reltionship ");
             }
         }
     }
