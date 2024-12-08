@@ -10,12 +10,12 @@ public class List
         {
             while (true)
             {
-                System.Console.WriteLine("View List");
-                System.Console.WriteLine("Do you want to view list Yes/No");
+                System.Console.WriteLine("View List ");
+                System.Console.WriteLine("Do you want to view list Yes/No ");
                 var _input = Console.ReadLine();
                 if (_input == "No")
                 {
-                    System.Console.WriteLine("Press any key to come back to menu");
+                    System.Console.WriteLine("Press any key to come back to menu ");
                     Console.ReadLine();
                     return;
                 }
@@ -99,9 +99,9 @@ public class ListBook
                 {
                     foreach (var loan in loans)
                     {
-                        System.Console.WriteLine($"\nBook: {loan.Book.Title}");
-                        System.Console.WriteLine($"Signature: {loan.Signature}");
-                        System.Console.WriteLine($"Is Returned: {loan.Returned}");
+                        System.Console.WriteLine($"\nBook {loan.Book.Title}");
+                        System.Console.WriteLine($"Signature {loan.Signature}");
+                        System.Console.WriteLine($"Is Returned {loan.Returned}");
                     }
 
                 }
